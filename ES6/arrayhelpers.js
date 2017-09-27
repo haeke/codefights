@@ -22,4 +22,17 @@ var cappedColors = colors.map(capitalize);
 console.log(cappedColors);
 //output ['RED', 'GREEN', 'BLUE']
 
-var values = [1, 2, 3, 4, 5, 6, 7];
+//filter - creates a new array containing a subset of the original array.
+//The result has these elements
+// that pass the test implemented by the provided fucntion, which should return true or false
+
+var values = [1, 60, 34, 30, 20, 5];
+
+function lessThan20(val) {
+  return val < 20;
+};
+
+var valsLessThan20 = values.filter(lessthan20);
+console.log(valsLessThan20);
+// output
+// [1,5]
