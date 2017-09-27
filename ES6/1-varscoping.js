@@ -56,9 +56,36 @@ for (var i = 0; i < 10; i++) {
   }, 1000);
 };
 
-// fixed version of the for loop using let ( block scoped ) 
+// fixed version of the for loop using let ( block scoped )
 for (let i = 0; i < 10; i++) {
   setTimeout(function () {
     console.log('The number is ' + i); //outputs 1-10
   }, 1000);
 };
+
+//example of in block scope and outside block scope variables
+function blockscopes() {
+  var x = 1;
+  let y = 2;
+  const z = 3;
+  {
+    var x = 100;
+    let y = 200;
+    const z = 300;
+    console.log('x in the block scope is ', x);
+    console.log('y in the block scope is ', y);
+    console.log('z in the block scope is ', z);
+  }
+  console.log('x outside the block scope is ', x);
+  console.log('y outside the block scope is ', y);
+  console.log('z outside the block scope is ', z);
+}
+
+blockscopes();
+//output:
+// x in the block scope is 100
+// y in the block scope is 200
+// z in the block scope is 300
+// x outside the block scope is 100
+// y outside the block scope is 2
+// z outside the block scope is 3
