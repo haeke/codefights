@@ -30,6 +30,7 @@ if (points > 40) {
 };
 
 //properties of a const cannot be reassigned aka you cannot change name or age
+//it cannot be reassigned
 const person = {
   name: 'Edwin',
   age: 28,
@@ -37,3 +38,27 @@ const person = {
 //instead you can change the value
 person.name = 'Ed'; //valid
 person.age = 29; //valid
+
+//not valid
+person = {name: 'Jimbo'}; //error: Assignment to constant variable
+
+// let and const example
+{
+  const name = 'Edwin';
+  console.log(name); //outputs Edwin
+}
+console.log(name); //output: nothing
+
+//for loop example
+for (var i = 0; i < 10; i++) {
+  setTimeout(function () {
+    console.log('The numer is ' + i); //outputs 10 - 10 times
+  }, 1000);
+};
+
+// fixed version of the for loop using let ( block scoped ) 
+for (let i = 0; i < 10; i++) {
+  setTimeout(function () {
+    console.log('The number is ' + i); //outputs 1-10
+  }, 1000);
+};
