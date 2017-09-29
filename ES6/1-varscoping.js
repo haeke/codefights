@@ -2,6 +2,11 @@
 // var is scoped to the function
 // let is blocked such that it can be scoped into a particular blockscope.
 
+//  Best Practices for using Var Let and Const in ES6
+// Use var for top-level variables that are shared across many scopes.
+// Use let for localized variables in smaller scopes
+// Refactor let to const only after some code has been written and you're reasonably sure that you've got a case where there shouldn't be variable reassignment.
+
 function setWidth() {
   var width = 100;
   console.log(width);
