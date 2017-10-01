@@ -36,6 +36,16 @@ box.addEventListener('click', function () {
 });
 
 // using the arrow function 'this' inherits the parent. aka the Window attribute
+// not the best practice
 box.addEventListener('click', () => {
   console.log(this);
+});
+
+// example of using an arrow function to keep a reference to 'this' inside multiple functions
+box.addEventListener('click', function () {
+  this.classList.toggle('.opening');
+  setTimeout(() => {
+    console.log(this); //inherits the context of this from above
+    this.classList.toggle('open');
+  });
 });
