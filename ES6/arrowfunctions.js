@@ -19,3 +19,23 @@ const Fullnames3 = name.map((name, other) => {
 const fullname = (test) => console.log(`this is a test`);
 
 fullname();
+
+const race = '100m Dash';
+const winners = ['Hunter Gath', 'Singa Song', 'Hugh Nose'];
+
+const win = winners.map((winner, index) => ({ name: winner, race: race, place: index + 1 }));
+
+console.log(win); //in browser use console.table(win);
+
+// arrow functions and this - in the example below we want to target a class named box on click
+
+//using a regular function, 'this' points to the box class
+const box = document.querySelector('.box');
+box.addEventListener('click', function () {
+  console.log(this); //output: outputs the box class
+});
+
+// using the arrow function 'this' inherits the parent. aka the Window attribute
+box.addEventListener('click', () => {
+  console.log(this);
+});
