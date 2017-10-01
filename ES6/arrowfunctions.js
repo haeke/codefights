@@ -47,5 +47,5 @@ box.addEventListener('click', function () {
   setTimeout(() => {
     console.log(this); //inherits the context of this from above
     this.classList.toggle('open');
-  });
+  }, 500);
 });
