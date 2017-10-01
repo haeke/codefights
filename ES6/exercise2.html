@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exercise 2</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <ul>
+      <li data-time="5:17">Video 1</li>
+      <li data-time="12:20">Video 2</li>
+      <li data-time="7:40">Video 3</li>
+      <li data-time="2:30">Item 4</li>
+    </ul>
+    <script type='text/javascript'>
+      //select all the list items on the page and convert to an array
+      const items = Array.from(document.querySelectorAll('[data-time]'));
+      //filter for only the elements that contain the word Video
+      const filterted = items
+          .filter(item => item.textContent.inludes('Video'))
+          //map down to the list of time strings
+          .map(item => item.dataset.time)
+          //map to an array of seconds
+          .map(timecode => {
+            const parts = timecode.split(':').map(part => parseFloat(part));
+            return (parts[0] * 60) + parts[1];
+          })
+          //reduce to get total
+          .reduce((runningtotal, seconds) => runningtotal + seconds);
+
+      console.log(filtered);
+
+    </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>
